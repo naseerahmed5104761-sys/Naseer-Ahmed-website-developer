@@ -354,35 +354,6 @@
         }
         .contact-form button { width: 100%; justify-content: center; }
 
-        /* ===== PRIVACY POLICY ===== */
-        .privacy-section {
-            padding: 100px 6%;
-            background: var(--bg-dark);
-            display: none;
-            border-top: 1px solid var(--border-color);
-        }
-        .privacy-section.active { display: block; }
-        .privacy-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            padding: 50px;
-            border-radius: 24px;
-            border: 1px solid var(--border-color);
-        }
-        .privacy-container h2 { font-size: 36px; margin-bottom: 10px; color: var(--primary); }
-        .privacy-container h3 { font-size: 20px; margin-top: 30px; margin-bottom: 10px; color: white; }
-        .privacy-container p, .privacy-container li { color: var(--text-muted); margin-bottom: 15px; }
-        .privacy-container ul { margin-left: 20px; margin-bottom: 20px; }
-        .close-privacy {
-            display: inline-block;
-            margin-top: 30px;
-            color: var(--primary);
-            cursor: pointer;
-            font-weight: 600;
-            text-decoration: underline;
-        }
-
         /* ===== FOOTER ===== */
         footer {
             padding: 60px 6% 30px;
@@ -433,7 +404,6 @@
             .section-header h2, .contact-info h2 { font-size: 28px; }
             .hero-buttons { flex-direction: column; }
             .btn { width: 100%; justify-content: center; }
-            .privacy-container { padding: 25px; }
         }
     </style>
 </head>
@@ -443,13 +413,12 @@
     <nav id="navbar">
         <div class="logo">Naseer<span>Ahmed</span></div>
         <div class="nav-links">
-            <a href="https://naseer-ahmed-website-developer.pages.dev">Home</a>
+            <a href="#home">Home</a>
             <a href="#services">Services</a>
             <a href="#categories">Categories</a>
             <a href="#contact">Contact</a>
-            <a href="/privacy-policy">Privacy Policy</a>
-            
-            <a href="#" id="privacyLink" class="btn-nav">Privacy</a>
+            <!-- Privacy Link Updated to Point to the External Page -->
+            <a href="Privacy Policy.html" class="btn-nav">Privacy</a>
         </div>
         <div class="menu-btn"><i class="fas fa-bars"></i></div>
     </nav>
@@ -760,54 +729,6 @@
         </div>
     </section>
 
-    <!-- Privacy Policy Section -->
-    <section class="privacy-section" id="privacySection">
-        <div class="privacy-container">
-            <h2>Privacy Policy</h2>
-            <p style="font-size: 14px; color: var(--primary);">Last updated: October 2026</p>
-            
-            <p>Welcome to the official website of <strong>Naseer Ahmed</strong>. Your privacy is important to me. This Privacy Policy explains how I collect, use, and protect your personal information when you visit my website or use my services.</p>
-
-            <h3>1. Information I Collect</h3>
-            <p>I may collect the following types of information:</p>
-            <ul>
-                <li><strong>Personal Information:</strong> Name, email address, phone number, and physical address provided voluntarily through contact forms.</li>
-                <li><strong>Usage Data:</strong> Information on how you interact with my website, including IP address, browser type, and pages visited.</li>
-            </ul>
-
-            <h3>2. How I Use Your Information</h3>
-            <p>I use the collected information for the following purposes:</p>
-            <ul>
-                <li>To provide, operate, and maintain my web development services.</li>
-                <li>To communicate with you regarding inquiries, projects, or customer support.</li>
-                <li>To improve my website and services based on user behavior and feedback.</li>
-                <li>To comply with legal obligations.</li>
-            </ul>
-
-            <h3>3. Data Protection</h3>
-            <p>I implement a variety of security measures to maintain the safety of your personal information. Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems.</p>
-
-            <h3>4. Third-Party Services</h3>
-            <p>I do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist me in operating my website, conducting my business, or servicing you, so long as those parties agree to keep this information confidential.</p>
-
-            <h3>5. Cookies</h3>
-            <p>My website may use "cookies" to enhance user experience. You can choose to set your web browser to refuse cookies or to alert you when cookies are being sent.</p>
-
-            <h3>6. Your Rights</h3>
-            <p>You have the right to request access to, correction of, or deletion of your personal data. If you wish to exercise these rights, please contact me using the information below.</p>
-
-            <h3>7. Contact Me</h3>
-            <p>If you have any questions about this Privacy Policy, please contact me at:</p>
-            <ul>
-                <li><strong>Email:</strong> naseersatti0301@gmail.com</li>
-                <li><strong>Phone:</strong> +92 301 5394177</li>
-                <li><strong>Address:</strong> H# 133 Street # 2-A, Block 5B Ghori Town, Islamabad, Pakistan, 44000</li>
-            </ul>
-
-            <div class="close-privacy" id="closePrivacy">← Back to Home</div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -819,7 +740,8 @@
                 <a href="#"><i class="fab fa-github"></i></a>
             </div>
             <div class="footer-links">
-                <a id="footerPrivacyLink">Privacy Policy</a>
+                <!-- Footer Privacy Link Updated to Point to the External Page -->
+                <a href="Privacy Policy.html">Privacy Policy</a>
             </div>
         </div>
     </footer>
@@ -850,30 +772,6 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
-
-        // Privacy Policy Toggle
-        const privacyLink = document.getElementById('privacyLink');
-        const footerPrivacyLink = document.getElementById('footerPrivacyLink');
-        const privacySection = document.getElementById('privacySection');
-        const closePrivacy = document.getElementById('closePrivacy');
-        const mainContent = document.querySelectorAll('.hero, .stats, .services, .categories, .contact');
-
-        function showPrivacy(e) {
-            e.preventDefault();
-            mainContent.forEach(sec => sec.style.display = 'none');
-            privacySection.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function hidePrivacy() {
-            mainContent.forEach(sec => sec.style.display = '');
-            privacySection.classList.remove('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        privacyLink.addEventListener('click', showPrivacy);
-        footerPrivacyLink.addEventListener('click', showPrivacy);
-        closePrivacy.addEventListener('click', hidePrivacy);
     </script>
 </body>
 </html>
